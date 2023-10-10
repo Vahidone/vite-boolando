@@ -5,7 +5,18 @@ export default {
 </script>
 
 <template>
-  <h2>main</h2>
+  <main>
+    <h1>sono MAIN</h1>
+  </main>
 </template>
 
-<style></style>
+<style lang="scss" scoped>
+main {
+  background-color: greenyellow;
+  width: 100%;
+  height: calc(100vh - 170px);
+  h1 {
+    text-align: center;
+  }
+}
+</style>
