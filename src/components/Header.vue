@@ -5,7 +5,7 @@ export default {
 </script>
 
 <template>
-  <header>header</header>
+  <header>headerss</header>
 </template>
 
 <style scoped>
