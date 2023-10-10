@@ -6,13 +6,20 @@
   box-sizing: border-box;
 }
 
+.debug {
+  background-color: rgb(236, 190, 190);
+  border: 1px solid black;
+  min-height: 10px;
+}
+
 body {
   font-family: $body-font;
   background-color: $body-bg-color;
 }
 
-.container {
+.container-csm {
   width: $container-width;
+  height: 100%;
   max-width: 1200px;
   margin: 0 auto;
 }
