@@ -12,15 +12,22 @@ export default {
     <div class="card relative">
       <img :src="product.primaryImage" />
       <img class="replace" :src="product.secondaryImage" />
-      <span class="discount">{{ product.discount }}</span>
-      <span class="sos">{{ product.sostenibilita }}</span>
+      <span v-if="!(product.discount == null)" class="discount">{{
+        product.discount
+      }}</span>
+      <span v-if="!(product.sostenibilita == null)" class="sos">{{
+        product.sostenibilita
+      }}</span>
       <span class="heart">&hearts;</span>
     </div>
     <div class="subtitle">
       <p>{{ product.marca }}</p>
       <p>{{ product.modello }}</p>
       <p>
-        {{ product.lastPrice }} € <span>{{ product.fullPrice }} €</span>
+        {{ product.lastPrice }} €
+        <span v-if="!(product.fullPrice == null)"
+          >{{ product.fullPrice }} €</span
+        >
       </p>
     </div>
   </div>
