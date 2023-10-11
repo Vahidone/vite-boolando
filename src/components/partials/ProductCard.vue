@@ -12,17 +12,17 @@ export default {
     <div class="card relative">
       <img :src="product.primaryImage" />
       <img class="replace" :src="product.secondaryImage" />
-      <span v-if="!(product.discount == null)" class="discount">{{
+      <span v-if="!(product.discount === null)" class="discount">{{
         product.discount
       }}</span>
-      <span v-if="!(product.sostenibilita == null)" class="sos">{{
+      <span v-if="!(product.sostenibilita === null)" class="sos">{{
         product.sostenibilita
       }}</span>
       <span class="heart">&hearts;</span>
     </div>
     <div class="subtitle">
-      <p>{{ product.marca }}</p>
-      <p>{{ product.modello }}</p>
+      <p class="mb-0">{{ product.marca }}</p>
+      <p class="mb-0">{{ product.modello }}</p>
       <p>
         {{ product.lastPrice }} €
         <span v-if="!(product.fullPrice == null)"
@@ -34,7 +34,7 @@ export default {
 </template>
 
 <style lang="scss" scoped>
-.card .discount {
+.discount {
   position: absolute;
   left: 0;
   bottom: 50px;
@@ -42,17 +42,13 @@ export default {
   color: white;
   padding: 5px 8px;
 }
-.card .sos {
+.sos {
   position: absolute;
   left: 63px;
   bottom: 50px;
   background-color: #008001;
   color: white;
   padding: 5px 8px;
-}
-
-.cards:last-child .card .sos.special {
-  left: 0;
 }
 
 .card .heart {
