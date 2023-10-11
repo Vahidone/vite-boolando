@@ -1,22 +1,27 @@
 <script>
 export default {
   name: "ProductCard",
+  props: {
+    product: Object,
+  },
 };
 </script>
 
 <template>
   <div class="cards">
     <div class="card relative">
-      <img src="/1.webp" />
-      <img class="replace" src="/1b.webp" />
-      <span class="discount">- 50%</span>
-      <span class="sos">Sostenibilità</span>
+      <img :src="product.primaryImage" />
+      <img class="replace" :src="product.secondaryImage" />
+      <span class="discount">{{ product.discount }}</span>
+      <span class="sos">{{ product.sostenibilita }}</span>
       <span class="heart">&hearts;</span>
     </div>
     <div class="subtitle">
-      <p>Levi's</p>
-      <p>RELAXED FIT TEE UNISEX</p>
-      <p>14,99 € <span>29,99 €</span></p>
+      <p>{{ product.marca }}</p>
+      <p>{{ product.modello }}</p>
+      <p>
+        {{ product.lastPrice }} € <span>{{ product.fullPrice }} €</span>
+      </p>
     </div>
   </div>
 </template>

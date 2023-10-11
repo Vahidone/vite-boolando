@@ -20,7 +20,11 @@ export default {
   <main class="container-csm d-flex">
     <!-- ROW --- -->
     <div class="row-top d-flex">
-      <ProductCard v-for="product in products" :key="product.id" />
+      <ProductCard
+        v-for="product in products"
+        :key="product.id"
+        :product="product"
+      />
     </div>
   </main>
 </template>
