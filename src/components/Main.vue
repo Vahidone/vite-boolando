@@ -1,18 +1,26 @@
 <script>
 import ProductCard from "./partials/ProductCard.vue";
+import products from "../data/products";
+
 export default {
   name: "Main",
   components: {
     ProductCard,
+    products,
+  },
+  data() {
+    return {
+      products,
+    };
   },
 };
 </script>
 
 <template>
   <main class="container-csm d-flex">
-    <!-- ROW 1  -->
+    <!-- ROW --- -->
     <div class="row-top d-flex">
-      <ProductCard />
+      <ProductCard v-for="product in products" :key="product.id" />
     </div>
   </main>
 </template>
@@ -27,6 +35,7 @@ main {
   gap: 80px;
   .row-top {
     flex-direction: row;
+    flex-wrap: wrap;
     justify-content: space-between;
     margin-top: 70px;
     gap: 10px;
