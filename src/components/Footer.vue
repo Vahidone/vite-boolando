@@ -1,6 +1,14 @@
 <script>
+import { social_menu, footer_menu } from "../data/menus";
+
 export default {
   name: "Footer",
+  data() {
+    return {
+      social_menu,
+      footer_menu,
+    };
+  },
 };
 </script>
 
@@ -11,9 +19,9 @@ export default {
         <div class="boolando">Boolando s.r.l</div>
         <div class="info">
           <ul>
-            <li><a href="#">Informazioni legali</a></li>
-            <li><a href="#">Normativa sulla privacy</a></li>
-            <li><a href="#">Diritto di recesso</a></li>
+            <li v-for="(item, index) in footer_menu" :key="`footer-${index}`">
+              <a :href="item.href">{{ item.text }}</a>
+            </li>
           </ul>
         </div>
       </div>
@@ -24,20 +32,13 @@ export default {
         <div class="trovaci">Trovaci anche su</div>
         <div class="social">
           <ul>
-            <li>
-              <a href="#"><i class="fa-brands fa-square-twitter"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-square-instagram"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-square-pinterest"></i></a>
-            </li>
-            <li>
-              <a href="#"><i class="fa-brands fa-square-youtube"></i></a>
+            <li
+              v-for="(item, index) in social_menu.footer"
+              :key="`social-${index}`"
+            >
+              <a :href="item.href"
+                ><i class="fa-brands" :class="item.icon_class"></i
+              ></a>
             </li>
           </ul>
         </div>
@@ -73,9 +74,10 @@ footer {
         flex-direction: row;
         display: flex;
         gap: 10px;
+        padding: 0;
         a {
           font-size: 13px;
-          color: $link-color;
+          color: white;
         }
       }
     }
@@ -97,7 +99,7 @@ footer {
         gap: 3px;
         a {
           margin-left: 10px;
-          color: white;
+          color: $link-color;
           font-size: 20px;
         }
       }

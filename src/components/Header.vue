@@ -1,6 +1,13 @@
 <script>
+import { main_menu, social_menu } from "../data/menus";
 export default {
   name: "Header",
+  data() {
+    return {
+      main_menu,
+      social_menu,
+    };
+  },
 };
 </script>
 
@@ -10,9 +17,9 @@ export default {
       <!-- MENU di sinistra del header  -->
       <div class="menu">
         <ul>
-          <li><a href="#">Donna</a></li>
-          <li><a href="#">Uomo</a></li>
-          <li><a href="#">Bambini</a></li>
+          <li v-for="(item, index) in main_menu" :key="`main-${index}`">
+            <a :href="item.href">{{ item.text }}</a>
+          </li>
         </ul>
         <!-- LOGO del header  -->
       </div>
@@ -23,14 +30,11 @@ export default {
       <!-- LOGIN del header  -->
       <div class="login">
         <ul>
-          <li>
-            <a href="#"><i class="fa-regular fa-user"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-regular fa-heart"></i></a>
-          </li>
-          <li>
-            <a href="#"><i class="fa-solid fa-bag-shopping"></i></a>
+          <li
+            v-for="(item, index) in social_menu.header"
+            :key="`login-${index}`"
+          >
+            <a :href="item.href"><i :class="item.icon_class"></i></a>
           </li>
         </ul>
       </div>

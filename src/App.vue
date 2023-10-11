@@ -20,4 +20,5 @@ export default {
 
 <style lang="scss">
 @use "./components/scss/main.scss";
+@import "bootstrap/scss/bootstrap";
 </style>
